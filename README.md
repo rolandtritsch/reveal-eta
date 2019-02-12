@@ -1,2 +1,1 @@
-# reveal-eta
-A/the presentation about eta (for the Scala Meetup in Dublin (Feb 2019))
+# A presentation about eta (for the Scala Meetup in Dublin (Feb 2019))

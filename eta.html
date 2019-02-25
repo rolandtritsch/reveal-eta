@@ -34,27 +34,30 @@
     <div class="reveal">
       <div class="slides">
 	      <section>
+          <section>
+            <a href="https://jaxenter.de/technologie-trends-2018-programmiersprachen-70112"><img width="100%" src="./images/languages.png"/></a>
+            <aside class="notes">
+	          </aside>
+	        </section>
 	        <section id="title">
 	          <h3>eta</h2>
             <h4>Functional Programming on the JVM</h2>
-	          <img src="./images/roland.png" width="20%"/>
+	          <img src="./images/roland.png" width="30%"/>
 	          <p>
-	            <small>Created by <a href="mailto:roland@tritsch.org">roland@tritsch.org</a> / <a href="http://twitter.com/innolocity">@innolocity</a></small>
-	          </p>
+              <small>Created by <a href="mailto:roland@tritsch.org">roland@tritsch.org</a> / <a href="http://twitter.com/innolocity">@innolocity</a></small>
+                <br>
+              <small>For the <a href="https://www.meetup.com/Dublin-Scala-users-group">Dublin Scala Meetup</a> / Febrary 2019</small>
+            </p>
 	          <aside class="notes">
-              <ul>
-                <li>???</li>
-                <li>???</li>
-                <li>???</li>
-              </ul>
 	          </aside>
 	        </section>
 	        <section>
 	          <h2>Who, what, why, ...</h2>
             <ul>
-              <li><a href="http://www.tritsch.org/about">Roland</a> - FP Enthuiast</li>
-              <li>Building/running functional teams and functional systems</li>
-              <li>On a sabbatical (to spend time with Alexandros while he is in TY :))</li>
+              <li>FP & SaaS & Agile SW Dev ... Enthusiast :)</li>
+              <li>Building functional teams and functional systems :)</li>
+              <li>Ex-IONA, Ex-Gilt, Ex-Nitro, ..., Soon-??? :)</li>
+              <li>Contributor to eta-benchmarks</li>
             </ul>
 	          <aside class="notes">
 	          </aside>
@@ -62,10 +65,10 @@
  	        <section>
 	          <h2>TTTA :)</h2>
             <ul>
-              <li>What is it? How does it work? History.</li>
-              <li>What works. What does not work. Alternatives.</li>
-              <li>How does it fit into the language landscape (eta vs. Scala vs. ...).</li>
-              <li>An example: Writing Spark jobs in Haskell/Eta.</li>
+              <li>What is it? How does it work?</li>
+              <li>What works? What does not work?</li>
+              <li>How does it fit into the language landscape?</li>
+              <li>Writing (some) code!!! </li>
             </ul>
             <aside class="notes">
 	          </aside>
@@ -76,9 +79,25 @@
           <section id="part1">
 	          <h2>What is it?</h2>
             <ul>
-              <li>???</li>
-              <li>???</li>
-              <li>???</li>
+              <li>A Google Summer of Code (GSOC) project</li>
+              <li>A forked/customized frontend (minimal)</li>
+              <li>A native backend (massive)</li>
+            </ul>
+            <aside class="notes">
+	          </aside>
+	        </section>
+          <section>
+	          <h2>What is it?</h2>
+            <img width="25%" src="./images/pipe.png"/>
+            <aside class="notes">
+	          </aside>
+	        </section>
+          <section>
+	          <h2>What is it?</h2>
+            <ul>
+              <li>An Opensource Project</li>
+              <li>A Company - Typelead</li>
+              <li>A Community - Github, Groups, Chat, ...</li>
             </ul>
             <aside class="notes">
 	          </aside>
@@ -86,19 +105,9 @@
           <section>
 	          <h2>How does it work?</h2>
             <ul>
-              <li>???</li>
-              <li>???</li>
-              <li>???</li>
-            </ul>
-            <aside class="notes">
-	          </aside>
-	        </section>
-          <section>
-	          <h2>History :) ...</h2>
-            <ul>
-              <li>???</li>
-              <li>???</li>
-              <li>???</li>
+              <li>etlas, gradle, sbt, ...</li>
+              <li>java interop, FFI, ...</li>
+              <li>hackage, patches, ...</li>
             </ul>
             <aside class="notes">
 	          </aside>
@@ -108,10 +117,10 @@
         <section>
           <section id="part2">
 	          <h2>What works/does not work?</h2>
-            <ul>
-              <li>???</li>
-              <li>???</li>
-              <li>???</li>
+            <ul style="list-style-type:none;">
+              <li>+ Lots of haskell packages</li>
+              <li>o Some Java packages</li>
+              <li>- Misc (Performance, Recursion, Types(Int, ...), ...)</li>
             </ul>
             <aside class="notes">
 	          </aside>
@@ -119,9 +128,9 @@
           <section>
 	          <h2>Alternatives ...</h2>
             <ul>
-              <li>???</li>
-              <li>???</li>
-              <li>???</li>
+              <li><a href="https://github.com/Frege/frege">Frege</a></li>
+              <li><a href="https://github.com/tweag/sparkle">Sparkle</a></li>
+              <li><a href="https://github.com/krapsh/kraps-haskell">Kraps</a></li>
             </ul>
             <aside class="notes">
 	          </aside>
@@ -132,8 +141,8 @@
           <section id="part3">
 	          <h2>The language landscape ...</h2>
             <ul>
-              <li>???</li>
-              <li>???</li>
+              <li>FP on the JVM</li>
+              <li>Haskell on the JVM</li>
               <li>???</li>
             </ul>
             <aside class="notes">
@@ -142,11 +151,61 @@
         </section>
 
         <section>
+          <section id="part4">
+	          <h2>Some demos ...</h2>
+            <ul>
+              <li><a href="https://github.com/rolandtritsch/haskell-aoc-2018">Advent of Code</a></li>
+              <li>Spark jobs written in Haskell :)</li>
+              <li>Using the FFI tool!!!</li>
+            </ul>
+            <aside class="notes">
+	          </aside>
+	        </section>
+          <section>
+	          <h2>Some demos ... - AOC</h2>
+            <a href="https://adventofcode.com/2018/day/1"><img width="50%" src="./images/aoc.png"/></a>
+            <aside class="notes">
+              <ul>
+                <li>Explain/discuss the problem</li>
+                <li>Review the code</li>
+                <li>Compile/run haskell/eta with stack/etlas</li>
+                <li>stack build :haskell-aoc-day01p1</li>
+                <li>stack run haskell-aoc-day01p1</li>
+                <li>etlas build haskell-aoc-day01p1</li>
+                <li>etlas run haskell-aoc-day01p1</li>
+                <li>This works, because stack and etlas (under the hood) both use cabal</li>
+                <li>Main difference is ... performance :)</li>
+                <li>eta is (much) slower than (native) haskell</li>
+                <li>(On average/Not too surprisingly) Its is probably also slower than Scala (in some/a lot of cases).</li>
+                <li>It is hard to say what the real difference is (e.g. warming up the JVM) and how much the difference actually matters to you.</li>
+                <li>In larger test I have seen a difference of (just) factor 2 (1200 vs 2200 secs).</li>
+              </ul>
+	          </aside>
+	        </section>
+          <section>
+	          <h2>Some demos ... - Spark</h2>
+            <a href="https://github.com/Jyothsnasrinivas/eta-spark-core"><img width="50%" src="./images/spark.png"/></a>
+            <aside class="notes">
+              <ul>
+                <li>This is WIP (not (necessarily) for production usage)</li>
+                <li>(Lots of) Datastrcutures missing (DataSets, DataFrames, ...)</li>
+                <li>Compile/run SimpleApp</li>
+                <li>etlas build simple-app-exe --enable-uberjar-mode</li>
+                <li>spark-submit dist/build/eta-0.8.6.4/eta-spark-core-0.1.1.0/x/si
+mple-app-exe/build/simple-app-exe/simple-app-exe.jar</li>
+                <li>Review the code</li>
+                <li>Make a change (also look for c's). Compile/run again.</li>
+              </ul>
+	          </aside>
+	        </section>
+        </section>
+
+        <section>
 	        <section id="summary">
 	          <h2>Summary & Take-aways</h2>
 	          <ul>
-	            <li>???</li>
-	            <li>???</li>
+	            <li>FP on the JVM - Scala is the better option</li>
+	            <li>Haskell on the JVM (using Haskell packages) - Something to consider</li>
 	            <li>???</li>
 	          </ul>
 	          <aside class="notes">
@@ -154,20 +213,7 @@
 	        </section>
 	        <section>
 	          <h2>Questions?</h2>
-            <img width="20%" src="./images/roland.png"/>
-	          <aside class="notes">
-	          </aside>
-	        </section>
-	      </section>
-
-	      <section>
-	        <section id="appendix">
-	          <h2>Appendix - Resources</h2>
-	          <ul>
-	            <li>???</li>
-	            <li>???</li>
-	            <li>???</li>
-	          </ul>
+            <img width="25%" src="./images/roland.png"/>
 	          <aside class="notes">
 	          </aside>
 	        </section>
@@ -266,7 +312,7 @@
       // The "normal" size of the presentation, aspect ratio will be preserved
       // when the presentation is scaled to fit different resolutions. Can be
       // specified using percentage units.
-      width: '50%',
+      width: '80%',
       //height: '50%',
 
       // Factor of the display size that should remain empty around the content

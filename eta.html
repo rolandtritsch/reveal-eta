@@ -94,6 +94,40 @@
 	        </section>
           <section>
 	          <h2>What is it?</h2>
+            <pre><code class="plaintext">
+              Day01.Part2.$wgo3 [InlPrag=NOUSERINLINE[0], Occ=LoopBreaker]
+                :: GHC.Prim.Int#
+                   -> Data.Set.Internal.Set Day01.Frequency -> GHC.Types.Bool
+              [GblId,
+               Arity=2,
+               Caf=NoCafRefs,
+               Str=<L,U><S,1*U>,
+               Unf=OtherCon []] =
+                  [] \r [ww_s6v2 w_s6v3]
+                      case w_s6v3 of {
+                        Data.Set.Internal.Bin _ [Occ=Dead]
+                                              ipv1_s6v6 [Occ=Once!]
+                                              ipv2_s6v7 [Occ=Once]
+                                              ipv3_s6v8 [Occ=Once] ->
+                            case ipv1_s6v6 of {
+                              GHC.Types.I# y#_s6va ->
+                                  case <# [ww_s6v2 y#_s6va] of {
+                                    __DEFAULT ->
+                                        case ==# [ww_s6v2 y#_s6va] of {
+                                          __DEFAULT -> Day01.Part2.$wgo3 ww_s6v2 ipv3_s6v8;
+                                          1# -> GHC.Types.True [];
+                                        };
+                                    1# -> Day01.Part2.$wgo3 ww_s6v2 ipv2_s6v7;
+                                  };
+                            };
+                        Data.Set.Internal.Tip -> GHC.Types.False [];
+                      };
+            </code></pre>
+            <aside class="notes">
+	          </aside>
+	        </section>
+          <section>
+	          <h2>What is it?</h2>
             <ul>
               <li>An Opensource Project</li>
               <li>A Company - Typelead</li>
@@ -109,6 +143,29 @@
               <li>java interop, FFI, ...</li>
               <li>hackage, patches, ...</li>
             </ul>
+            <aside class="notes">
+	          </aside>
+	        </section>
+          <section>
+	          <h2>How does it work?</h2>
+            <pre><code class="plaintext">
+                diff --git a/src/Data/Bytes/Serial.hs b/src/Data/Bytes/Serial.hs
+                index fb521d7..63c7b1a 100644
+                --- a/src/Data/Bytes/Serial.hs
+                +++ b/src/Data/Bytes/Serial.hs
+                @@ -96,10 +96,14 @@ import System.IO.Unsafe
+                import Numeric.Natural
+                #endif
+
+                -foreign import ccall floatToWord32 :: Float -> Word32
+                -foreign import ccall word32ToFloat :: Word32 -> Float
+                -foreign import ccall doubleToWord64 :: Double -> Word64
+                -foreign import ccall word64ToDouble :: Word64 -> Double
+                +foreign import java unsafe "@static java.lang.Float.floatToRawIntBits" floatToWord32 :: Float -> Word32
+                +foreign import java unsafe "@static java.lang.Float.intBitsToFloat" word32ToFloat :: Word32 -> Float
+                +foreign import java unsafe "@static java.lang.Double.doubleToRawLongBits" doubleToWord64 :: Double -> Word64
+                +foreign import java unsafe "@static java.lang.Double.longBitsToDouble" word64ToDouble :: Word64 -> Double
+            </code></pre>
             <aside class="notes">
 	          </aside>
 	        </section>
@@ -156,8 +213,14 @@
             <ul>
               <li><a href="https://github.com/rolandtritsch/haskell-aoc-2018">Advent of Code</a></li>
               <li>Spark jobs written in Haskell :)</li>
-              <li>Using the FFI tool!!!</li>
+              <li>Using FFI!!!</li>
             </ul>
+            <aside class="notes">
+	          </aside>
+	        </section>
+          <section>
+	          <h2>Some demos ...</h2>
+            <img width="50%" src="./images/demo.jpg"/>
             <aside class="notes">
 	          </aside>
 	        </section>
@@ -178,7 +241,7 @@
                 <li>eta is (much) slower than (native) haskell</li>
                 <li>(On average/Not too surprisingly) Its is probably also slower than Scala (in some/a lot of cases).</li>
                 <li>It is hard to say what the real difference is (e.g. warming up the JVM) and how much the difference actually matters to you.</li>
-                <li>In larger test I have seen a difference of (just) factor 2 (1200 vs 2200 secs).</li>
+                <li>In larger test (day10p1) I have seen a difference of (just) factor 2 (1200 vs 2200 secs).</li>
               </ul>
 	          </aside>
 	        </section>
@@ -187,6 +250,7 @@
             <a href="https://github.com/Jyothsnasrinivas/eta-spark-core"><img width="50%" src="./images/spark.png"/></a>
             <aside class="notes">
               <ul>
+                <li>checkout meetup</li>
                 <li>This is WIP (not (necessarily) for production usage)</li>
                 <li>(Lots of) Datastrcutures missing (DataSets, DataFrames, ...)</li>
                 <li>Compile/run SimpleApp</li>
@@ -198,6 +262,23 @@ mple-app-exe/build/simple-app-exe/simple-app-exe.jar</li>
               </ul>
 	          </aside>
 	        </section>
+          <section>
+	          <h2>Some demos ... - FFI</h2>
+            <a href="https://eta-lang.org/docs/user-guides/eta-user-guide/java-interop/java-interop-basics"><img width="50%" src="./images/ffi.svg"/></a>
+            <aside class="notes">
+              <ul>
+                <li>checkout meetup</li>
+                <li>stack run eta-ffi-fib-exe 1000</li>
+                <li>etlas run eta-ffi-fib-exe 1000</li>
+                <li>edit Lib.hs (add fib'' with fibAdd())</li>
+                <li>git checkout ffi src/Fib.java</li>
+                <li>edit Lib.hs (add foreign import java unsafe ...)</li>
+                <li>edit Main.hs</li>
+                <li>edit cabal</li>
+                <li>etlas run eta-ffi-fib-exe 1000</li>
+              </ul>
+	          </aside>
+	        </section>
         </section>
 
         <section>
@@ -206,7 +287,7 @@ mple-app-exe/build/simple-app-exe/simple-app-exe.jar</li>
 	          <ul>
 	            <li>FP on the JVM - Scala is the better option</li>
 	            <li>Haskell on the JVM (using Haskell packages) - Something to consider</li>
-	            <li>???</li>
+	            <li>eta is looking for contributors :)</li>
 	          </ul>
 	          <aside class="notes">
 	          </aside>
